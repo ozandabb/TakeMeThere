@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "97035289232",
+    "firebase_url": "https://take-me-there-c49de.firebaseio.com",
+    "project_id": "take-me-there-c49de",
+    "storage_bucket": "take-me-there-c49de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97035289232:android:4c21ec571f0652c3ea8e15",
+        "android_client_info": {
+          "package_name": "com.ozandabb.takemethere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97035289232-mk5vfvajvrhps3njf0vskglg7oqu00rg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG8EAodcQNe1HxfSwixZSx7Njox2AGXTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97035289232-mk5vfvajvrhps3njf0vskglg7oqu00rg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

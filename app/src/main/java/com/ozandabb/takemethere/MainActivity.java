@@ -1,30 +1,65 @@
 package com.ozandabb.takemethere;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
+import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.ozandabb.takemethere.utils.BottonNavigationViewHelper;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Context mContext = MainActivity.this;
-
     private static final String TAG = "MainActivity";
+//    private Toolbar mainToolBar;
+    private FirebaseAuth mAuth;
+    private ImageView logout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
+        logout = findViewById(R.id.home_logout_btn);
+
+//        mainToolBar = (Toolbar) findViewById(R.id.maintoolbar);
+//        setSupportActionBar(mainToolBar);
+//        getSupportActionBar().setLogo(R.drawable.logo);
+//        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                sendToLogin();
+            }
+        });
+
     }
 
-    private void setupBottomNavigationView(){
-        BottomNavigationView bottomNavigationViewEx = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        //BottonNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottonNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
-        Intent homeintent = new Intent(this, MainActivity.class);
-        startActivity(homeintent);
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser CurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (CurrentUser == null) {
+            sendToLogin();
+        } else {
+            // No user is signed in
+        }
+    }
+
+    private void logout(){
+        mAuth.signOut();
+        sendToLogin();
+    }
+
+    private void sendToLogin() {
+        Intent goLogin = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(goLogin);
+        finish();
     }
 }

@@ -31,13 +31,14 @@
                         android:src="@drawable/logo" />
 
                     <ImageView
+                        android:id="@+id/home_logout_btn"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/settings" />
+                        android:src="@drawable/logout" />
 
                 </RelativeLayout>
-            </RelativeLayout>
+    </RelativeLayout>
 
         <LinearLayout
             android:layout_marginTop="50dp"
